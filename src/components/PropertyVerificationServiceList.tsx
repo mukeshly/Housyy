@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Head from 'next/head';
+import Image from 'next/image';
 
 const services = [
   {
@@ -119,7 +119,7 @@ const ServiceCard = ({ service, index }) => (
     
     <div className="lg:w-[412px] lg:pl-8">
     
-       <img className='rounded-[53px] w-full h-[350]  object-cover' src="/long-house.jpg" alt="" />
+       <Image className='rounded-[53px] w-full h-[350]  object-cover' src="/long-house.jpg" alt="" />
       
     </div>
   </motion.div>

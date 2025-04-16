@@ -49,7 +49,7 @@ const fadeIn = {
 const PricingSection = () => {
   return (
     <section className="x-round-card h-container">
-      <div className="text-center mb-10">
+      <div className="text-center mb-5">
       <motion.h2
           className="text-4xl md:text-6xl font-bold font-poppins text-[#050F27] leading-tight"
           initial={{ opacity: 0, y: -20 }}
@@ -81,7 +81,8 @@ const PricingSection = () => {
             )}
             <div>
               <h3 className="text-xl font-semibold text-[#101828] font-inter mb-2 text-center">
-                {plan.title}
+                {plan.title}<br />
+                {plan.price}
               </h3>
               <p className="text-center text-[#667085] mb-4">
                 {plan.price === 'Get Quote' ? plan.features[0] : 'What’s included'}
@@ -100,7 +101,7 @@ const PricingSection = () => {
 
             <div className="mt-8">
               <button className="w-full py-3 px-6 rounded-xl text-white font-semibold bg-red-600 hover:bg-red-700 transition duration-300 shadow-md">
-                {plan.price}
+                Book Appointment
               </button>
             </div>
           </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
-
+import Image from "next/image";
 const Footer = () => {
   const socialIcons = [
     {
@@ -71,11 +71,16 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <img 
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa29aa457043928028bc66e550d27314abfcd1d4" 
-              alt="Housyy Logo" 
-              className="h-16 w-auto"
+          
+
+            <Image
+              src="/logo.png"
+              className="!w-35"
+              alt="Housyy Logo"
+             width={200} height={100}
             />
+  
+
             <p className="text-gray-600 leading-relaxed">
               Housyy is an innovative Indian property platform that makes real estate investment simple and transparent, transforming how Indians invest in property.
             </p>

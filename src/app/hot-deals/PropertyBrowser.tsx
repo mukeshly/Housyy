@@ -4,6 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Heart, Filter, X } from 'lucide-
 import { cn } from '@/lib/utils';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import {
   Collapsible,
   CollapsibleContent,
@@ -194,9 +195,12 @@ const PropertyBrowser: React.FC<PropertyBrowserProps> = ({
                       : "ring-0"
                   )}
                 >
-                  <img
+                  <Image
                     src={category.image}
                     alt={category.title}
+                    width={500}
+                    height={500}
+                    layout='responsive'
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 text-white">
@@ -351,10 +355,15 @@ const PropertyBrowser: React.FC<PropertyBrowserProps> = ({
             {filteredProperties?.map((property) => (
               <div key={property.id} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-scale-in">
                 <div className="relative">
-                  <img 
+                  <Image 
                     src={property.image} 
                     alt={property.title} 
+                    width={500}
+                    height={500}
+                    layout='responsive'
+
                     className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+
                   />
                   <button 
                     className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-200"

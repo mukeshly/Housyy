@@ -13,6 +13,7 @@ import PricingPlan from './PricingPlan';
 import FaqSection from '@/components/FaqSection';
 import LiveHotDeals from '@/components/LiveHotDeals';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 
 
@@ -22,7 +23,9 @@ export default function PropertySingle() {
 
   return (
     <main className="w-full">
-      <section className='my-5'>
+      <section className=''>
+<Header />
+
       <PropertySlider />
       </section>
       <section className='my-5'>

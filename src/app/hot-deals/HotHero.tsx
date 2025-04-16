@@ -1,6 +1,7 @@
 import React from "react";
 import MainSearch from './MainSearch';
 import Header from "@/components/Header";
+import Image from "next/image";
 
 const HotDealsSection = () => {
 
@@ -22,14 +23,14 @@ const HotDealsSection = () => {
       data-aos-delay={100}
     >
       <div className="relative w-[119px] h-[119px] mb-5 ">
-        <img src="./check.png" alt="Check" />
+        <Image width={119} height={119} src="/check.png" alt="Check" />
       </div>
       <p className="text-white text-center font-inter text-lg font-normal leading-[22px] tracking-[-0.371px]">
         Verified Title
       </p>
     </div>
 
-    <img className="" src="./plus.svg" alt="Plus" />
+    <Image  className="w-12" width={119} height={119} src="/plus.svg" alt="Plus" />
 
     <div
       className="flex flex-col items-center"
@@ -37,13 +38,13 @@ const HotDealsSection = () => {
       data-aos-delay={100}
     >
       <div className="relative w-[119px] h-[119px] mb-5">
-        <img src="./check.png" alt="Check" />
+        <Image width={119} height={119} src="/check.png" alt="Check" />
       </div>
       <p className="text-white text-center font-inter text-lg font-normal leading-[22px] tracking-[-0.371px]">
         Verified Title
       </p>
     </div>
-    <img className="hidden md:block" src="./plus.svg" alt="Plus" />
+    <Image width={119} height={119} className="hidden md:block w-12" src="/plus.svg" alt="Plus" />
 
   </div>
 
@@ -55,14 +56,14 @@ const HotDealsSection = () => {
       data-aos-delay={100}
     >
       <div className="relative w-[119px] h-[119px] mb-5">
-        <img src="./check.png" alt="Check" />
+        <Image width={119} height={119} src="/check.png" alt="Check" />
       </div>
       <p className="text-white text-center font-inter text-lg font-normal leading-[22px] tracking-[-0.371px]">
         Verified Title
       </p>
     </div>
 
-    <img src="./equal.svg" alt="Equals" className="mt-4 md:mt-0" />
+    <Image width={119} height={119} src="/equal.svg" alt="Equals" className="w-12 mt-4 md:mt-0" />
 
 
     <div
@@ -71,7 +72,7 @@ const HotDealsSection = () => {
       data-aos-delay={100}
     >
       <div className="relative w-[119px] h-[119px] mb-5">
-        <img src="./check.png" alt="Check" />
+        <Image width={119} height={119} src="/check.png" alt="Check" />
       </div>
       <p className="text-white text-center font-inter text-lg font-normal leading-[22px] tracking-[-0.371px]">
         Verified Title

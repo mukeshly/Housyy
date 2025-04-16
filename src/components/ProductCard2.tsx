@@ -1,6 +1,7 @@
 // components/ProductCard2.tsx
 import React from "react";
 import { Heart } from "lucide-react";
+import Image from "next/image";
 
 interface ProductCard2Props {
   title: string;
@@ -24,7 +25,7 @@ const ProductCard2: React.FC<ProductCard2Props> = ({
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-scale-in">
       <div className="relative">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"

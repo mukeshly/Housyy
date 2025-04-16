@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import HotHero from './HotHero';
 import PropertyBrowser from "./PropertyBrowser";
 
-import { ArrowRight, Heart, } from 'lucide-react';
+import { ArrowRight, } from 'lucide-react';
 import LiveHotDeals from "@/components/LiveHotDeals";
 import ProductCard2 from "@/components/ProductCard2";
 // Sample data for categories
@@ -13,37 +13,37 @@ const categories = [
     id: 'newly-launched',
     title: 'Newly Launched',
     properties: 1230,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   },
   {
     id: 'bank-auction',
     title: 'Bank Auction Property',
     properties: 1190,
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   },
   {
     id: 'affordable',
     title: 'Affordable Housing',
     properties: 1710,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   },
   {
     id: 'urgent-resale',
     title: 'Urgent Resale Deals',
     properties: 670,
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   },
   {
     id: 'luxury',
     title: 'Luxury Villas',
     properties: 350,
-    image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   },
   {
     id: 'waterfront',
     title: 'Waterfront Properties',
     properties: 480,
-    image: 'https://images.unsplash.com/photo-1600607687120-9e4bbeadec59?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+    image: '/p1.jpg'
   }
 ];
 
@@ -57,7 +57,7 @@ const propertiesByCategory = {
       price: 450000,
       bedrooms: 2,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600047508788-26bb84920b06?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p1.jpg',
       isFeatured: true
     },
     {
@@ -67,7 +67,7 @@ const propertiesByCategory = {
       price: 750000,
       bedrooms: 4,
       bathrooms: 3,
-      image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p1.jpg'
     },
     {
       id: 'nl-3',
@@ -76,7 +76,7 @@ const propertiesByCategory = {
       price: 320000,
       bedrooms: 1,
       bathrooms: 1,
-      image: 'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p1.jpg'
     }
   ],
   'bank-auction': [
@@ -87,7 +87,7 @@ const propertiesByCategory = {
       price: 980000,
       bedrooms: 5,
       bathrooms: 4,
-      image: 'https://images.unsplash.com/photo-1600607687644-c7e73da96547?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p1.jpg',
       isFeatured: true
     },
     {
@@ -97,7 +97,7 @@ const propertiesByCategory = {
       price: 520000,
       bedrooms: 3,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p2.jpg'
     },
     {
       id: 'ba-3',
@@ -106,7 +106,7 @@ const propertiesByCategory = {
       price: 290000,
       bedrooms: 2,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p3.jpg'
     }
   ],
   'affordable': [
@@ -117,7 +117,7 @@ const propertiesByCategory = {
       price: 235000,
       bedrooms: 2,
       bathrooms: 1,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p4.jpg'
     },
     {
       id: 'af-2',
@@ -126,7 +126,7 @@ const propertiesByCategory = {
       price: 198000,
       bedrooms: 2,
       bathrooms: 1,
-      image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p4.jpg'
     },
     {
       id: 'af-3',
@@ -135,7 +135,7 @@ const propertiesByCategory = {
       price: 210000,
       bedrooms: 1,
       bathrooms: 1,
-      image: 'https://images.unsplash.com/photo-1600607688162-99aaa9e939c6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p4.jpg',
       isFeatured: true
     }
   ],
@@ -147,7 +147,7 @@ const propertiesByCategory = {
       price: 495000,
       bedrooms: 3,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p1.jpg'
     },
     {
       id: 'ur-2',
@@ -156,7 +156,7 @@ const propertiesByCategory = {
       price: 380000,
       bedrooms: 3,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p5.jpg',
       isFeatured: true
     },
     {
@@ -166,7 +166,7 @@ const propertiesByCategory = {
       price: 340000,
       bedrooms: 2,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600566753151-384129cf4e3e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p6.jpg'
     }
   ],
   'luxury': [
@@ -177,7 +177,7 @@ const propertiesByCategory = {
       price: 12500000,
       bedrooms: 7,
       bathrooms: 9,
-      image: 'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p1.jpg',
       isFeatured: true
     },
     {
@@ -187,7 +187,7 @@ const propertiesByCategory = {
       price: 8900000,
       bedrooms: 4,
       bathrooms: 4,
-      image: 'https://images.unsplash.com/photo-1600607687101-6fee50ee4742?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p2.jpg'
     },
     {
       id: 'lx-3',
@@ -196,7 +196,7 @@ const propertiesByCategory = {
       price: 6700000,
       bedrooms: 6,
       bathrooms: 7,
-      image: 'https://images.unsplash.com/photo-1600607687710-46bb69c5f512?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p3.jpg'
     }
   ],
   'waterfront': [
@@ -207,7 +207,7 @@ const propertiesByCategory = {
       price: 890000,
       bedrooms: 3,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080',
+      image: '/p7.jpg',
       isFeatured: true
     },
     {
@@ -217,7 +217,7 @@ const propertiesByCategory = {
       price: 750000,
       bedrooms: 2,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p5.jpg'
     },
     {
       id: 'wf-3',
@@ -226,7 +226,7 @@ const propertiesByCategory = {
       price: 680000,
       bedrooms: 3,
       bathrooms: 2,
-      image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080'
+      image: '/p6.jpg'
     }
   ]
 };

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const reasons = [
   {
@@ -43,7 +44,7 @@ export default function WhyChooseHousyy() {
               className="group bg-white rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#ED1C24]/30"
             >
               <div className="mb-5 flex items-center justify-center w-[70px] h-[70px] rounded-full bg-[#ED1C24]/10 group-hover:bg-[#ED1C24]/20 mx-auto">
-                <img
+                <Image
                   src={item.icon}
                   alt={item.title}
                   className="w-9 h-9 object-contain"

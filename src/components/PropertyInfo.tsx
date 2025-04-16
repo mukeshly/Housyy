@@ -66,7 +66,7 @@ export default function PropertyInfo() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="font-inter text-xl font-normal leading-8 text-[#060606] sm:text-2xl sm:leading-9 lg:text-[28px] lg:leading-[40px]"
               >
-                A dream home or a lucrative investment can quickly turn into a nightmare if not verified properly. From hidden legal disputes to unclear ownership records, a single mistake can cost you millions. Our experts conduct comprehensive checks to uncover any hidden red flags—so you don't have to.
+                A dream home or a lucrative investment can quickly turn into a nightmare if not verified properly. From hidden legal disputes to unclear ownership records, a single mistake can cost you millions. Our experts conduct comprehensive checks to uncover any hidden red flags—so you do not have to.
               </motion.p>
             </div>
           </section>

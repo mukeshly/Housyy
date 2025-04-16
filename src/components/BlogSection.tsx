@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface BlogPost {
   id: number;
@@ -15,7 +16,7 @@ const BlogSection: React.FC = () => {
       id: 1,
       title: "How Does One Go About Buying Furniture?",
       excerpt: "Discover the best practices for selecting and purchasing quality furniture that fits your space and style.",
-      imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      imageUrl: "/p1.jpg",
       date: "May 15, 2023",
       readTime: "5 min read"
     },
@@ -23,7 +24,7 @@ const BlogSection: React.FC = () => {
       id: 2,
       title: "Innovative Décor Ideas Shaping Homes Today",
       excerpt: "Explore the latest interior design trends that are transforming living spaces around the world.",
-      imageUrl: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace",
+      imageUrl: "/p2.jpg",
       date: "June 2, 2023",
       readTime: "4 min read"
     },
@@ -31,7 +32,7 @@ const BlogSection: React.FC = () => {
       id: 3,
       title: "Design Industry Updates You Should Know About",
       excerpt: "Stay informed with the most important developments in the design and architecture industry.",
-      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      imageUrl: "/p3.jp",
       date: "June 10, 2023",
       readTime: "6 min read"
     }
@@ -85,9 +86,11 @@ const BlogSection: React.FC = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={post.imageUrl}
                   alt={post.title}
+                  width={500}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">

@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header from "./Header";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "./Navbar";
 
 const Hero: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string>("Select City");

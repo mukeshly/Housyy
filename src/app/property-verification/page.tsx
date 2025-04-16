@@ -37,14 +37,14 @@ export default function PropertyVerificationPage() {
 <section className="my-20">
  <VerificationProcess />
 </section>
-
+<section className="my-5">
+ <PricingSection />
+</section>
 <section className="my-5">
  <WhyChooseHousyy />
 </section>
 
-<section className="my-5">
- <PricingSection />
-</section>
+
 <section className="my-5">
  <FaqSection />
 </section>

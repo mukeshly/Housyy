@@ -1,7 +1,6 @@
 'use client'
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Header from '@/components/Header';
 import Image from 'next/image';
 
 
@@ -51,7 +50,6 @@ const PropertySlider = () => {
   return (
     <>
       <div className="relative w-full overflow-hidden">
-        <Header />
         {/* Navigation Bar */}
         <div className="flex items-center gap-5 py-5 h-container">
           <button className="flex items-center gap-2 text-white">
