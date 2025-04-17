@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
-import Link from 'next/link';
-import Image from 'next/image';
-
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,11 +15,9 @@ const Header: React.FC = () => {
   useEffect(() => {
     // Set initial path
     setCurrentPath(window.location.pathname);
-    
+
     // Find the initial active index
-    const index = navItems.findIndex(item => 
-      currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href))
-    );
+    const index = navItems.findIndex((item) => currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
     if (index !== -1) {
       setActiveIndex(index);
     }
@@ -29,11 +27,9 @@ const Header: React.FC = () => {
       const newPath = window.location.pathname;
       setCurrentPath(newPath);
       setMenuOpen(false); // Close mobile menu on navigation
-      
+
       // Update active index
-      const newIndex = navItems.findIndex(item => 
-        newPath === item.href || (item.href !== "/" && newPath.startsWith(item.href))
-      );
+      const newIndex = navItems.findIndex((item) => newPath === item.href || (item.href !== "/" && newPath.startsWith(item.href)));
       if (newIndex !== -1) {
         setActiveIndex(newIndex);
       }
@@ -50,11 +46,11 @@ const Header: React.FC = () => {
     observer.observe(document, { subtree: true, childList: true });
 
     // Add event listener for popstate (back/forward navigation)
-    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener("popstate", handleUrlChange);
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener("popstate", handleUrlChange);
     };
   }, [currentPath]);
 
@@ -65,16 +61,16 @@ const Header: React.FC = () => {
 
   // Update indicator position on window resize
   useEffect(() => {
-    window.addEventListener('resize', updateIndicatorPosition);
+    window.addEventListener("resize", updateIndicatorPosition);
     return () => {
-      window.removeEventListener('resize', updateIndicatorPosition);
+      window.removeEventListener("resize", updateIndicatorPosition);
     };
   }, []);
 
   const updateIndicatorPosition = () => {
     const activeElement = navItemRefs.current[activeIndex];
     const indicator = indicatorRef.current;
-    
+
     if (activeElement && indicator) {
       const rect = activeElement.getBoundingClientRect();
       indicator.style.width = `${rect.width}px`;
@@ -92,19 +88,13 @@ const Header: React.FC = () => {
 
   // Check if a nav item is active
   const isActive = (href: string) => {
-    return currentPath === href || 
-           (href !== "/" && currentPath.startsWith(href));
+    return currentPath === href || (href !== "/" && currentPath.startsWith(href));
   };
 
   // Handle manual navigation and animation
-  const handleNavClick = (index: number, href: string) => {
+  const handleNavClick = (index: number) => {
     setActiveIndex(index);
     // Don't set current path immediately to allow animation to complete
-    setTimeout(() => {
-      if (href !== currentPath) {
-        window.location.href = href;
-      }
-    }, 300);
   };
 
   return (
@@ -113,42 +103,32 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div className="flex-shrink-0 transition-transform duration-300 hover:scale-105">
           <Link href="/" className="block">
-            <Image
-              src="/logo.png"
-              className="!w-35"
-              alt="Housyy Logo"
-             width={200} height={100}
-            />
+            <Image src={logo} className="!w-35" alt="Housy Logo" />
           </Link>
         </div>
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex md:items-center md:gap-6 relative">
-          
           {navItems.map((item, index) => {
             const active = index === activeIndex;
             return (
-              <a
+              <Link
                 key={index}
-                ref={el => navItemRefs.current[index] = el}
+                ref={(el) => (navItemRefs.current[index] = el)}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(index, item.href);
+                onClick={() => {
+                  handleNavClick(index);
                 }}
                 className={`relative text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 ${
                   active ? "font-semibold" : "hover:text-opacity-80"
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
           {/* Animated indicator */}
-          <div 
-            ref={indicatorRef}
-            className="absolute -bottom-[20px] left-0 h-0.5 bg-red-500 rounded-full transition-all duration-300 ease-in-out"
-          />
+          <div ref={indicatorRef} className="absolute -bottom-[20px] left-0 h-0.5 bg-red-500 rounded-full transition-all duration-300 ease-in-out" />
         </div>
 
         {/* CTA Button */}
