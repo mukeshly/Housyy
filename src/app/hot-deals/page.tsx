@@ -1,237 +1,236 @@
-'use client' 
+"use client";
 
 import Footer from "@/components/Footer";
-import HotHero from './HotHero';
+import HotHero from "./HotHero";
 import PropertyBrowser from "./PropertyBrowser";
 
-import { ArrowRight, } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 import LiveHotDeals from "@/components/LiveHotDeals";
 import ProductCard2 from "@/components/ProductCard2";
+import { p1, p2, p3, p4, p5, p6, p7 } from "@/assets/houses";
 // Sample data for categories
 const categories = [
   {
-    id: 'newly-launched',
-    title: 'Newly Launched',
+    id: "newly-launched",
+    title: "Newly Launched",
     properties: 1230,
-    image: '/p1.jpg'
+    image: p1,
   },
   {
-    id: 'bank-auction',
-    title: 'Bank Auction Property',
+    id: "bank-auction",
+    title: "Bank Auction Property",
     properties: 1190,
-    image: '/p1.jpg'
+    image: p3,
   },
   {
-    id: 'affordable',
-    title: 'Affordable Housing',
+    id: "affordable",
+    title: "Affordable Housing",
     properties: 1710,
-    image: '/p1.jpg'
+    image: p4,
   },
   {
-    id: 'urgent-resale',
-    title: 'Urgent Resale Deals',
+    id: "urgent-resale",
+    title: "Urgent Resale Deals",
     properties: 670,
-    image: '/p1.jpg'
+    image: p5,
   },
   {
-    id: 'luxury',
-    title: 'Luxury Villas',
+    id: "luxury",
+    title: "Luxury Villas",
     properties: 350,
-    image: '/p1.jpg'
+    image: p6,
   },
   {
-    id: 'waterfront',
-    title: 'Waterfront Properties',
+    id: "waterfront",
+    title: "Waterfront Properties",
     properties: 480,
-    image: '/p1.jpg'
-  }
+    image: p7,
+  },
 ];
 
 // Sample property data
 const propertiesByCategory = {
-  'newly-launched': [
+  "newly-launched": [
     {
-      id: 'nl-1',
-      title: 'Modern Apartment with City View',
-      location: 'Downtown, New York',
+      id: "nl-1",
+      title: "Modern Apartment with City View",
+      location: "Downtown, New York",
       price: 450000,
       bedrooms: 2,
       bathrooms: 2,
-      image: '/p1.jpg',
-      isFeatured: true
+      image: p1,
+      isFeatured: true,
     },
     {
-      id: 'nl-2',
-      title: 'Spacious Family Home',
-      location: 'Suburbia, California',
+      id: "nl-2",
+      title: "Spacious Family Home",
+      location: "Suburbia, California",
       price: 750000,
       bedrooms: 4,
       bathrooms: 3,
-      image: '/p1.jpg'
+      image: p2,
     },
     {
-      id: 'nl-3',
-      title: 'Studio Apartment',
-      location: 'Brooklyn, New York',
+      id: "nl-3",
+      title: "Studio Apartment",
+      location: "Brooklyn, New York",
       price: 320000,
       bedrooms: 1,
       bathrooms: 1,
-      image: '/p1.jpg'
-    }
+      image: p3,
+    },
   ],
-  'bank-auction': [
+  "bank-auction": [
     {
-      id: 'ba-1',
-      title: 'Foreclosed Beachfront Villa',
-      location: 'Malibu, California',
+      id: "ba-1",
+      title: "Foreclosed Beachfront Villa",
+      location: "Malibu, California",
       price: 980000,
       bedrooms: 5,
       bathrooms: 4,
-      image: '/p1.jpg',
-      isFeatured: true
+      image: p4,
+      isFeatured: true,
     },
     {
-      id: 'ba-2',
-      title: 'Blueberry Villa',
-      location: 'Portland, Oregon',
+      id: "ba-2",
+      title: "Blueberry Villa",
+      location: "Portland, Oregon",
       price: 520000,
       bedrooms: 3,
       bathrooms: 2,
-      image: '/p2.jpg'
+      image: p5,
     },
     {
-      id: 'ba-3',
-      title: 'Bank Seized Condo',
-      location: 'Miami, Florida',
+      id: "ba-3",
+      title: "Bank Seized Condo",
+      location: "Miami, Florida",
       price: 290000,
       bedrooms: 2,
       bathrooms: 2,
-      image: '/p3.jpg'
-    }
+      image: p5,
+    },
   ],
-  'affordable': [
+  affordable: [
     {
-      id: 'af-1',
-      title: 'Starter Home for Young Couples',
-      location: 'Austin, Texas',
+      id: "af-1",
+      title: "Starter Home for Young Couples",
+      location: "Austin, Texas",
       price: 235000,
       bedrooms: 2,
       bathrooms: 1,
-      image: '/p4.jpg'
+      image: p4,
     },
     {
-      id: 'af-2',
-      title: 'Cozy Cottage Near Park',
-      location: 'Denver, Colorado',
+      id: "af-2",
+      title: "Cozy Cottage Near Park",
+      location: "Denver, Colorado",
       price: 198000,
       bedrooms: 2,
       bathrooms: 1,
-      image: '/p4.jpg'
+      image: p4,
     },
     {
-      id: 'af-3',
-      title: 'Renovated Apartment Downtown',
-      location: 'Chicago, Illinois',
+      id: "af-3",
+      title: "Renovated Apartment Downtown",
+      location: "Chicago, Illinois",
       price: 210000,
       bedrooms: 1,
       bathrooms: 1,
-      image: '/p4.jpg',
-      isFeatured: true
-    }
+      image: p4,
+      isFeatured: true,
+    },
   ],
-  'urgent-resale': [
+  "urgent-resale": [
     {
-      id: 'ur-1',
-      title: 'Quick Sale Needed - Family Home',
-      location: 'Seattle, Washington',
+      id: "ur-1",
+      title: "Quick Sale Needed - Family Home",
+      location: "Seattle, Washington",
       price: 495000,
       bedrooms: 3,
       bathrooms: 2,
-      image: '/p1.jpg'
+      image: p1,
     },
     {
-      id: 'ur-2',
-      title: 'Owner Relocating - Must Sell',
-      location: 'Phoenix, Arizona',
+      id: "ur-2",
+      title: "Owner Relocating - Must Sell",
+      location: "Phoenix, Arizona",
       price: 380000,
       bedrooms: 3,
       bathrooms: 2,
-      image: '/p5.jpg',
-      isFeatured: true
+      image: p5,
+      isFeatured: true,
     },
     {
-      id: 'ur-3',
-      title: 'Price Reduced - Townhouse',
-      location: 'Philadelphia, Pennsylvania',
+      id: "ur-3",
+      title: "Price Reduced - Townhouse",
+      location: "Philadelphia, Pennsylvania",
       price: 340000,
       bedrooms: 2,
       bathrooms: 2,
-      image: '/p6.jpg'
-    }
+      image: p6,
+    },
   ],
-  'luxury': [
+  luxury: [
     {
-      id: 'lx-1',
-      title: 'Hillside Mansion with Pool',
-      location: 'Beverly Hills, California',
+      id: "lx-1",
+      title: "Hillside Mansion with Pool",
+      location: "Beverly Hills, California",
       price: 12500000,
       bedrooms: 7,
       bathrooms: 9,
-      image: '/p1.jpg',
-      isFeatured: true
+      image: p1,
+      isFeatured: true,
     },
     {
-      id: 'lx-2',
-      title: 'Penthouse with 360° Views',
-      location: 'Manhattan, New York',
+      id: "lx-2",
+      title: "Penthouse with 360° Views",
+      location: "Manhattan, New York",
       price: 8900000,
       bedrooms: 4,
       bathrooms: 4,
-      image: '/p2.jpg'
+      image: p2,
     },
     {
-      id: 'lx-3',
-      title: 'Waterfront Estate',
-      location: 'Palm Beach, Florida',
+      id: "lx-3",
+      title: "Waterfront Estate",
+      location: "Palm Beach, Florida",
       price: 6700000,
       bedrooms: 6,
       bathrooms: 7,
-      image: '/p3.jpg'
-    }
+      image: p3,
+    },
   ],
-  'waterfront': [
+  waterfront: [
     {
-      id: 'wf-1',
-      title: 'Lake House with Private Dock',
-      location: 'Lake Tahoe, Nevada',
+      id: "wf-1",
+      title: "Lake House with Private Dock",
+      location: "Lake Tahoe, Nevada",
       price: 890000,
       bedrooms: 3,
       bathrooms: 2,
-      image: '/p7.jpg',
-      isFeatured: true
+      image: p7,
+      isFeatured: true,
     },
     {
-      id: 'wf-2',
-      title: 'Oceanside Condo',
-      location: 'San Diego, California',
+      id: "wf-2",
+      title: "Oceanside Condo",
+      location: "San Diego, California",
       price: 750000,
       bedrooms: 2,
       bathrooms: 2,
-      image: '/p5.jpg'
+      image: p5,
     },
     {
-      id: 'wf-3',
-      title: 'River View Property',
-      location: 'Portland, Oregon',
+      id: "wf-3",
+      title: "River View Property",
+      location: "Portland, Oregon",
       price: 680000,
       bedrooms: 3,
       bathrooms: 2,
-      image: '/p6.jpg'
-    }
-  ]
+      image: p6,
+    },
+  ],
 };
-
-
 
 export default function Home() {
   return (
@@ -239,10 +238,7 @@ export default function Home() {
       <HotHero />
 
       <div className="h-container x-round-card my-5">
-        <PropertyBrowser 
-          categories={categories}
-          propertiesByCategory={propertiesByCategory}
-        />
+        <PropertyBrowser categories={categories} propertiesByCategory={propertiesByCategory} />
       </div>
 
       {/* Section: Bank Auction Property */}
@@ -300,12 +296,10 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Live Hot Deals */}
       <section className="my-5">
         <LiveHotDeals />
       </section>
-
       {/* Footer */}
       <section>
         <Footer />

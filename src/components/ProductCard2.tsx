@@ -17,7 +17,7 @@ const ProductCard2: React.FC<ProductCard2Props> = ({ title, location, image, pri
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-scale-in">
       <div className="relative">
-        <Image src={image} alt={title} width={100} height={208} className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" />
+        <Image src={image} alt={title} className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" />
         <button className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-200" aria-label="Add to favorites">
           <Heart className="h-5 w-5 text-gray-600 hover:text-red-500 transition-colors duration-200" />
         </button>

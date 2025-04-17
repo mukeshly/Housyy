@@ -11,29 +11,24 @@ export default function Home() {
   return (
     <div className="bg-blue-950">
       <Hero />
-
       <section className="my-5">
         <Challenges />
       </section>
       <section className="my-5">
         <WhyUsSection />
       </section>
-
       <section className="my-5">
         <ServicesSection />
       </section>
-
       <section className="my-5">
         <LiveHotDeals />
       </section>
-
       <section className="my-5">
         <TestimonialSlider />
       </section>
       <section className="my-5">
         <BlogSection />
       </section>
-
       <section className="my-5">
         <Footer />
       </section>

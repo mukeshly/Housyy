@@ -11,12 +11,12 @@
   --card-radius-sm: 32px;
 }
 body {
-  background:#1D234F !important;
+  background: #1d234f !important;
 }
 
 .h-container {
   width: 80%;
-  margin:auto;
+  margin: auto;
 }
 @theme inline {
   --color-background: var(--background);
@@ -38,8 +38,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .x-round-card {
   padding: var(--card-padding-lg);
   background-color: var(--card-bg);
@@ -53,9 +51,8 @@ body {
 
   .h-container {
     width: 95%;
-    margin:auto;
+    margin: auto;
   }
-
 }
 
 @media (max-width: 640px) {
@@ -65,18 +62,15 @@ body {
   }
 }
 
-
 .title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 49px;
   line-height: 55px;
   font-weight: 700;
   letter-spacing: 0px;
-  color: #050F27;
+  color: #050f27;
   margin-bottom: 20px;
 }
-
-
 
 @media (max-width: 767px) {
   .title {
@@ -86,20 +80,15 @@ body {
 
   .mobile-search {
     height: 100% !important;
-    padding:15px;
-    margin:15px;
+    padding: 15px;
+    margin: 15px;
   }
 
-  
   .mobile-search button {
     height: 40px;
     border-radius: 8px !important;
   }
 }
-
-
-
-
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .title {
