@@ -1,0 +1,151 @@
+[
+  {
+    "name": "The Main Topic",
+    "type": "long_text",
+    "required": true
+  },
+  {
+    "name": "Duration",
+    "type": "single_select",
+    "select_options": [
+      {
+        "value": "30 Second"
+      },
+      {
+        "value": "1 Minute"
+      },
+      {
+        "value": "2 Minutes"
+      }
+    ]
+  },
+  {
+    "name": "Generative Style",
+    "type": "single_select",
+    "select_options": [
+      {
+        "value": "Lego"
+      },
+      {
+        "value": "Minecraft"
+      },
+      {
+        "value": "Disney Pixar"
+      },
+      {
+        "value": "Hand-Drawn"
+      },
+      {
+        "value": "Chibi"
+      },
+      {
+        "value": "Anime"
+      },
+      {
+        "value": "Hyper-Realistic"
+      },
+      {
+        "value": "Cyberpunk"
+      },
+      {
+        "value": "fantasy"
+      }
+    ]
+  },
+  {
+    "name": "Video Type",
+    "type": "single_select",
+    "required": true,
+    "select_options": [
+      {
+        "value": "From user idea"
+      },
+      {
+        "value": "From transcript"
+      }
+    ]
+  },
+  {
+    "name": "TTS Voice",
+    "type": "single_select",
+    "required": true,
+    "select_options": [
+      {
+        "value": "af_alloy"
+      },
+      {
+        "value": "af_aoede"
+      },
+      {
+        "value": "af_bella"
+      },
+      {
+        "value": "af_heart"
+      },
+      {
+        "value": "af_jadzia"
+      },
+      {
+        "value": "af_jessica"
+      },
+      {
+        "value": "af_kore"
+      },
+      {
+        "value": "af_nicole"
+      },
+      {
+        "value": "af_nova"
+      },
+      {
+        "value": "af_river"
+      },
+      {
+        "value": "af_sarah"
+      },
+      {
+        "value": "af_sky"
+      },
+      {
+        "value": "am_adam"
+      },
+      {
+        "value": "am_echo"
+      },
+      {
+        "value": "am_eric"
+      },
+      {
+        "value": "am_fenrir"
+      },
+      {
+        "value": "am_liam"
+      },
+      {
+        "value": "am_michael"
+      },
+      {
+        "value": "am_onyx"
+      },
+      {
+        "value": "am_puck"
+      },
+      {
+        "value": "am_santa"
+      }
+    ]
+  },
+  {
+    "name": "Image Provider",
+    "type": "single_select",
+    "required": true,
+    "select_options": [
+      {
+        "value": "together.ai"
+      },
+      {
+        "value": "fal.ai"
+      }
+    ]
+  }
+]
