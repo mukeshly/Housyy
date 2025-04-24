@@ -1,6 +1,7 @@
 // components/ProductCard1.tsx
 import React from "react";
 import Image from "next/image";
+import p1 from "@/assets/houses/p1.jpg";
 
 interface PropertyDeal {
   id: number;
@@ -29,7 +30,7 @@ const ProductCard1: React.FC<Props> = ({ property, cardWidth }) => {
       <div className="bg-white rounded-2xl overflow-hidden shadow-md h-full flex flex-col">
         <div className="relative p-3">
           <Image
-            src={property.image}
+            src={p1}
             alt={property.title}
             className="w-full h-[180px] sm:h-[200px] object-cover rounded-xl"
             layout="responsive"

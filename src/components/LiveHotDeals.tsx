@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, PanInfo } from "framer-motion";
 import ProductCard1 from "./ProductCard1"; // ✅ Adjust the path if needed
 
+
 interface PropertyDeal {
   id: number;
   title: string;
@@ -24,7 +25,7 @@ const propertyDeals: PropertyDeal[] = [
     id: 1,
     title: "3 BHK Apartment – Zirakpur",
     location: "Sushma Downtown, VIP Road",
-    image: "/home-1.png",
+    image: "/houses/p1.jpg",
     isLimitedTimeOffer: true,
     isVerified: true,
     isReraRegistered: true,

@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import lh from "@/assets/long-house.jpg";
+
 
 const services = [
   {
@@ -119,7 +121,7 @@ const ServiceCard = ({ service, index }) => (
     
     <div className="lg:w-[412px] lg:pl-8">
     
-       <Image className='rounded-[53px] w-full h-[350]  object-cover' src="/long-house.jpg" alt="" />
+       <Image className='rounded-[53px] w-full h-[350]  object-cover' src={lh} width={500} height={400} alt="" />
       
     </div>
   </motion.div>

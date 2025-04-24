@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import home1 from "@/assets/home-1.png"
 
 
 const PropertySlider = () => {
@@ -12,7 +13,7 @@ const PropertySlider = () => {
   const properties = [
     {
       id: 1,
-      image: '/home-1.png',
+      image: home1,
       price: '₹90,00,000',
       config: '2 Bed | 2 Bath',
       period: '5-7 years',
@@ -22,7 +23,7 @@ const PropertySlider = () => {
     },
     {
       id: 2,
-      image: '/home-1.png',
+      image: home1,
       price: '₹1,20,00,000',
       config: '3 Bed | 2 Bath',
       period: '7-10 years',

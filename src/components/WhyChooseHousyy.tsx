@@ -48,6 +48,7 @@ export default function WhyChooseHousyy() {
                   src={item.icon}
                   alt={item.title}
                   className="w-9 h-9 object-contain"
+                  width={10} height={10}
                 />
               </div>
               <h3 className="text-xl font-semibold text-[#050F27] mb-2">

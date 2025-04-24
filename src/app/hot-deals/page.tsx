@@ -7,7 +7,7 @@ import PropertyBrowser from "./PropertyBrowser";
 import { ArrowRight } from "lucide-react";
 import LiveHotDeals from "@/components/LiveHotDeals";
 import ProductCard2 from "@/components/ProductCard2";
-import { p1, p2, p3, p4, p5, p6, p7 } from "@/assets/houses";
+import { p1, p2, p3, p4, p5, p6, p7 } from "@/assets/houses"; 
 // Sample data for categories
 const categories = [
   {
