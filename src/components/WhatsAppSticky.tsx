@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const WhatsAppSticky = () => {
@@ -11,19 +10,20 @@ const WhatsAppSticky = () => {
     return null;
   }
 
+  const currentPath = pathname ?? "/";
   const message =
-    pathname === "/property-verification"
+    currentPath === "/property-verification"
       ? "Hi, I want help with property verification."
-      : pathname === "/hot-deals"
+      : currentPath === "/hot-deals"
         ? "Hi, I want to know more about your hot deals."
-        : pathname.startsWith("/property-single")
+        : currentPath.startsWith("/property-single")
           ? "Hi, I am interested in this property and want more details."
           : "Hi, I want to know more about Housyy's hot deals.";
 
   const href = `https://wa.me/${rawNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <Link
+    <a
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -47,7 +47,7 @@ const WhatsAppSticky = () => {
         </svg>
       </span>
       <span className="hidden sm:inline">Chat on WhatsApp</span>
-    </Link>
+    </a>
   );
 };
 
