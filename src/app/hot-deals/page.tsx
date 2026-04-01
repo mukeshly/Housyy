@@ -152,7 +152,7 @@ export default function HotDealsPage() {
 
       <section className="h-container x-round-card !my-5 text-center">
         <h2 className="mb-4 text-3xl font-bold text-slate-950 md:text-4xl">
-          Want today's live inventory instead of brochure examples?
+          Want today&apos;s live inventory instead of brochure examples?
         </h2>
         <p className="mx-auto max-w-3xl text-base leading-7 text-slate-600">
           Message us directly on WhatsApp and we will share the current opportunities that match your budget,
