@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, PanInfo } from "framer-motion";
 import ProductCard1 from "./ProductCard1"; // ✅ Adjust the path if needed
+import Link from "next/link";
 
 
 interface PropertyDeal {
@@ -25,7 +26,7 @@ const propertyDeals: PropertyDeal[] = [
     id: 1,
     title: "3 BHK Apartment – Zirakpur",
     location: "Sushma Downtown, VIP Road",
-    image: "/houses/p1.jpg",
+    image: "/long-house.jpg",
     isLimitedTimeOffer: true,
     isVerified: true,
     isReraRegistered: true,
@@ -55,7 +56,7 @@ const propertyDeals: PropertyDeal[] = [
     id: 3,
     title: "2 BHK Apartment – Panchkula",
     location: "Green Valley Heights, Sector 20",
-    image: "/home-1.png",
+    image: "/long-house.jpg",
     isLimitedTimeOffer: false,
     isVerified: true,
     isReraRegistered: true,
@@ -142,11 +143,16 @@ const LiveHotDeals: React.FC = () => {
   return (
     <div className="x-round-card h-container">
       <div className="flex justify-between items-center w-full">
-        <h2 className="title">Live Hot Deals</h2>
+        <div>
+          <h2 className="title mb-2">Featured Hot Deals</h2>
+          <p className="max-w-2xl text-base text-gray-600">
+            A quick look at the kind of pricing gap and verification signals buyers care about most.
+          </p>
+        </div>
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#ED1C24] bg-opacity-70 flex items-center justify-center hover:bg-opacity-100 transition-all"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#050F27]/15 bg-white text-[#050F27] shadow-sm transition-all hover:border-[#050F27]/35 hover:bg-slate-50 sm:h-12 sm:w-12"
             aria-label="Previous property"
           >
             <svg
@@ -158,7 +164,7 @@ const LiveHotDeals: React.FC = () => {
             >
               <path
                 d="M15 18L9 12L15 6"
-                stroke="white"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
@@ -166,7 +172,7 @@ const LiveHotDeals: React.FC = () => {
           </button>
           <button
             onClick={handleNext}
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#ED1C24] flex items-center justify-center hover:bg-opacity-90 transition-all"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#050F27]/15 bg-white text-[#050F27] shadow-sm transition-all hover:border-[#050F27]/35 hover:bg-slate-50 sm:h-12 sm:w-12"
             aria-label="Next property"
           >
             <svg
@@ -178,7 +184,7 @@ const LiveHotDeals: React.FC = () => {
             >
               <path
                 d="M9 18L15 12L9 6"
-                stroke="white"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
@@ -213,6 +219,15 @@ const LiveHotDeals: React.FC = () => {
             />
           ))}
         </motion.div>
+      </div>
+
+      <div className="mt-6 flex justify-center md:justify-end">
+        <Link
+          href="/hot-deals"
+          className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#ED1C24] px-8 py-4 text-center text-lg font-semibold text-white shadow-md transition hover:bg-[#c4121b] hover:shadow-lg"
+        >
+          See Hot Deals
+        </Link>
       </div>
     </div>
   );

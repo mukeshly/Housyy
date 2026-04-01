@@ -1,114 +1,66 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import Link from "next/link";
 
-const pricingData = [
+const consultationPoints = [
   {
-    title: 'Basic Verification Package',
-    price: '₹5,000',
-    features: [
-      'Access to all basic features',
-      'Basic reporting and analytics',
-      'Up to 10 individual users',
-      '20GB data per user',
-      'Basic chat and email support',
-    ],
-    popular: true,
+    title: "Share the property",
+    description: "Send the project name, location, and whatever documents you already have.",
   },
   {
-    title: 'Advanced Verification Package',
-    price: '₹10,000',
-    features: [
-      '200+ integrations',
-      'Advanced reporting and analytics',
-      'Up to 20 individual users',
-      '40GB data per user',
-      'Priority chat and email support',
-    ],
-    popular: false,
+    title: "We review the risk areas",
+    description: "We tell you what needs checking first: title, dues, approvals, ownership chain, or financeability.",
   },
   {
-    title: 'Custom Package',
-    price: 'Get Quote',
-    features: [
-      'Tailored services for unique properties like agricultural land or large commercial spaces.',
-    ],
-    popular: false,
+    title: "Get a clear next step",
+    description: "You’ll know whether to move ahead, ask more questions, or pause before paying a token.",
   },
 ];
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.2, duration: 0.6, ease: 'easeOut' },
-  }),
-};
+export default function PricingSection() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "";
+  const consultationHref = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        "Hi, I want a consultation for property verification."
+      )}`
+    : "/#contact";
 
-const PricingSection = () => {
   return (
     <section className="x-round-card h-container">
-      <div className="text-center mb-5">
-      <motion.h2
-          className="text-4xl md:text-6xl font-bold font-poppins text-[#050F27] leading-tight"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-         
-        >
-          Pricing
-        </motion.h2>
+      <div className="mx-auto max-w-5xl text-center">
+        <h2 className="text-4xl font-bold font-poppins text-[#050F27] leading-tight md:text-6xl">
+          How the consultation works
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg">
+          This page is for buyers who want expert review before they move money. Start with a consultation, then we’ll tell you which checks matter for your property.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-        {pricingData.map((plan, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className={`flex flex-col justify-between rounded-3xl border border-gray-200 bg-white shadow-xl p-6 md:p-8 relative overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1 ${
-              plan.popular ? 'border-red-500' : ''
-            }`}
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {consultationPoints.map((point) => (
+          <div
+            key={point.title}
+            className="rounded-[26px] border border-slate-200 bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
           >
-            {plan.popular && (
-              <div className="absolute top-5 right-5 text-xs bg-red-100 text-red-600 px-3 py-1 rounded-full font-medium animate-bounce">
-                Most Popular
-              </div>
-            )}
-            <div>
-              <h3 className="text-xl font-semibold text-[#101828] font-inter mb-2 text-center">
-                {plan.title}<br />
-                {plan.price}
-              </h3>
-              <p className="text-center text-[#667085] mb-4">
-                {plan.price === 'Get Quote' ? plan.features[0] : 'What’s included'}
-              </p>
-              {plan.price !== 'Get Quote' && (
-                <ul className="space-y-3">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-[#667085]">
-                      <CheckCircle className="text-green-500 mt-1" size={20} />
-                      <span className="text-sm leading-6">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div className="mt-8">
-              <button className="w-full py-3 px-6 rounded-xl text-white font-semibold bg-red-600 hover:bg-red-700 transition duration-300 shadow-md">
-                Book Appointment
-              </button>
-            </div>
-          </motion.div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Step
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#050F27]">
+              {point.title}
+            </h3>
+            <p className="mt-3 text-[15px] leading-7 text-slate-600">{point.description}</p>
+          </div>
         ))}
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Link
+          href={consultationHref}
+          target={whatsappNumber ? "_blank" : undefined}
+          rel={whatsappNumber ? "noreferrer" : undefined}
+          className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#25D366] px-8 py-4 text-center text-lg font-semibold text-white shadow-[0_14px_30px_rgba(18,140,126,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+        >
+          Book Verification Consultation
+        </Link>
       </div>
     </section>
   );
-};
-
-export default PricingSection;
+}

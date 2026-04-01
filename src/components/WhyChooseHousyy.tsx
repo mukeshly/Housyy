@@ -1,21 +1,21 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import { Scale, FileSearch, MessageSquareText } from "lucide-react";
 
 const reasons = [
   {
-    title: 'Experienced Legal Experts',
-    description: 'Decades of expertise in real estate verification.',
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/f8fc3ecb768d2089e53cee7fc249a1a708ba5d6c',
+    title: "Buyer-side legal review",
+    description: "We look at the paperwork from the buyer’s risk point of view, not just the seller’s story.",
+    icon: Scale,
   },
   {
-    title: 'Comprehensive Checks',
-    description: 'Covering every legal and financial aspect of property transactions.',
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/f8fc3ecb768d2089e53cee7fc249a1a708ba5d6c',
+    title: "Practical document scrutiny",
+    description: "The output is meant to help you make a decision: what looks clean, what is missing, and what needs follow-up.",
+    icon: FileSearch,
   },
   {
-    title: 'Transparent Process',
-    description: 'Regular updates and no hidden charges.',
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/f8fc3ecb768d2089e53cee7fc249a1a708ba5d6c',
+    title: "Clear communication",
+    description: "We help you understand the issue in plain language so you know whether to proceed, negotiate, or pause.",
+    icon: MessageSquareText,
   },
 ];
 
@@ -34,22 +34,19 @@ export default function WhyChooseHousyy() {
         </motion.h2>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((item, idx) => (
+          {reasons.map((item, idx) => {
+            const Icon = item.icon;
+            return (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#ED1C24]/30"
+              className="group rounded-[28px] border border-slate-200 bg-white p-8 text-center shadow-[0_12px_32px_rgba(15,23,42,0.06)] transition-all duration-300 hover:border-[#050F27]/15 hover:shadow-[0_18px_40px_rgba(15,23,42,0.1)]"
             >
-              <div className="mb-5 flex items-center justify-center w-[70px] h-[70px] rounded-full bg-[#ED1C24]/10 group-hover:bg-[#ED1C24]/20 mx-auto">
-                <Image
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-9 h-9 object-contain"
-                  width={10} height={10}
-                />
+              <div className="mx-auto mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-[#050F27]/6 text-[#050F27]">
+                <Icon className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-semibold text-[#050F27] mb-2">
                 {item.title}
@@ -58,7 +55,7 @@ export default function WhyChooseHousyy() {
                 {item.description}
               </p>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

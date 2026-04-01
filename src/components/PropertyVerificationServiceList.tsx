@@ -1,143 +1,104 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import lh from "@/assets/long-house.jpg";
-
+import { motion } from "framer-motion";
+import { FileCheck, Landmark, ScrollText, ShieldCheck } from "lucide-react";
 
 const services = [
   {
     title: "Title Verification",
-    subtitle: "Is Your Property Legally Yours?",
-    description: "A property's title tells its true story. Our legal experts verify its ownership history, detect any disputes, and confirm its authenticity before you invest.",
-    features: [
-      "Avoid future legal battles",
-      "Gain full ownership confidence",
-      "Ensure the title is 100% legitimate"
-    ],
-    whatItIs: "Title verification is the process of thoroughly checking property ownership records to confirm that the seller has the legal right to sell the property.",
-    whyItMatters: "This crucial step protects buyers from potential disputes or fraud arising from unclear or disputed ownership, ensuring a smooth and secure transaction."
+    subtitle: "Check whether the seller can legally transfer the property.",
+    icon: Landmark,
+    features: ["Ownership history", "Claim check"],
   },
   {
     title: "Encumbrance Check",
-    subtitle: "Hidden Financial Liabilities?",
-    description: "Uncover any hidden loans, mortgages, or legal claims against the property that could become your responsibility after purchase.",
-    features: [
-      "Identify undisclosed loans",
-      "Check for legal attachments",
-      "Verify financial clearance"
-    ],
-    whatItIs: "An encumbrance check reveals any financial or legal liabilities tied to the property that might affect your ownership rights.",
-    whyItMatters: "Discovering hidden liabilities before purchase prevents unexpected debts or legal issues from transferring to you as the new owner."
+    subtitle: "Spot loans, charges, or legal claims tied to the property.",
+    icon: ShieldCheck,
+    features: ["Loan visibility", "Charge review"],
   },
   {
     title: "Land Records Check",
-    subtitle: "Does Everything Match?",
-    description: "We cross-verify all land records with physical documents to ensure no discrepancies in measurements, boundaries, or ownership details.",
-    features: [
-      "Verify property dimensions",
-      "Check boundary agreements",
-      "Confirm zoning regulations"
-    ],
-    whatItIs: "Land records verification ensures all official documents match the physical property characteristics and legal descriptions.",
-    whyItMatters: "Accurate land records prevent boundary disputes and ensure the property you're buying matches its legal description."
+    subtitle: "Match the paperwork with the official land record trail.",
+    icon: ScrollText,
+    features: ["Record match", "Boundary issues"],
   },
-
   {
     title: "Compliance Verification",
-    subtitle: "Is It Legally Approved?",
-    description: "We cross-verify all land records with physical documents to ensure no discrepancies in measurements, boundaries, or ownership details.",
-    features: [
-      "Verify property dimensions",
-      "Check boundary agreements",
-      "Confirm zoning regulations"
-    ],
-    whatItIs: "Land records verification ensures all official documents match the physical property characteristics and legal descriptions.",
-    whyItMatters: "Accurate land records prevent boundary disputes and ensure the property you're buying matches its legal description."
-  }
+    subtitle: "Review approvals and permissions before commitment.",
+    icon: FileCheck,
+    features: ["Approval status", "Plan compliance"],
+  },
 ];
 
 const CheckIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 flex-shrink-0">
-    <rect width="24" height="24" rx="12" fill="#D1FADF"/>
-    <path fillRule="evenodd" clipRule="evenodd" d="M17.096 7.38967L9.93602 14.2997L8.03602 12.2697C7.68602 11.9397 7.13602 11.9197 6.73602 12.1997C6.34602 12.4897 6.23602 12.9997 6.47602 13.4097L8.72602 17.0697C8.94602 17.4097 9.32601 17.6197 9.75601 17.6197C10.166 17.6197 10.556 17.4097 10.776 17.0697C11.136 16.5997 18.006 8.40967 18.006 8.40967C18.906 7.48967 17.816 6.67967 17.096 7.37967V7.38967Z" fill="#12B76A"/>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="h-5 w-5 flex-shrink-0">
+    <rect width="24" height="24" rx="12" fill="#D1FADF" />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M17.096 7.38967L9.93602 14.2997L8.03602 12.2697C7.68602 11.9397 7.13602 11.9197 6.73602 12.1997C6.34602 12.4897 6.23602 12.9997 6.47602 13.4097L8.72602 17.0697C8.94602 17.4097 9.32601 17.6197 9.75601 17.6197C10.166 17.6197 10.556 17.4097 10.776 17.0697C11.136 16.5997 18.006 8.40967 18.006 8.40967C18.906 7.48967 17.816 6.67967 17.096 7.37967V7.38967Z"
+      fill="#12B76A"
+    />
   </svg>
-);
-
-const InfoSection = ({ whatItIs, whyItMatters }) => (
-  <div className="grid md:grid-cols-2 gap-8 mt-8 pt-8 border-t border-gray-200">
-    <div>
-      <h3 className="text-[#333] font-poppins text-xl md:text-2xl font-bold mb-3 md:mb-4">
-        What It Is?
-      </h3>
-      <p className="text-[#3B3B3B] font-poppins text-base">
-        {whatItIs}
-      </p>
-    </div>
-    
-    <div>
-      <h3 className="text-[#333] font-poppins text-xl md:text-2xl font-bold mb-3 md:mb-4">
-        Why It Matters?
-      </h3>
-      <p className="text-[#3B3B3B] font-poppins text-base">
-        {whyItMatters}
-      </p>
-    </div>
-  </div>
-);
-
-const ServiceCard = ({ service, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.1, duration: 0.5 }}
-    className="flex flex-col lg:flex-row gap-8 x-round-card shadow-sm"
-  >
-    <div className="flex-1">
-      <div className="mb-6">
-        <h3 className="text-[#050F27] font-poppins text-base sm:text-lg font-semibold uppercase tracking-wide">
-          {service.title}
-        </h3>
-        <h2 className="text-[#050F27] font-poppins text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold leading-tight tracking-tight mt-2">
-          {service.subtitle}
-        </h2>
-      </div>
-      
-      <p className="text-[#333] font-inter text-base lg:text-lg mb-6">
-        {service.description}
-      </p>
-      
-      <ul className="space-y-3 mb-8">
-        {service.features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3">
-            <CheckIcon />
-            <span className="text-[#000] font-inter text-base lg:text-lg">
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      <InfoSection whatItIs={service.whatItIs} whyItMatters={service.whyItMatters} />
-    </div>
-    
-    <div className="lg:w-[412px] lg:pl-8">
-    
-       <Image className='rounded-[53px] w-full h-[350]  object-cover' src={lh} width={500} height={400} alt="" />
-      
-    </div>
-  </motion.div>
 );
 
 export default function PropertyVerificationServiceList() {
   return (
-    <>
-   
-      <div className="">
-        <div className="h-container mx-auto space-y-8 lg:space-y-12">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
+    <section id="verification-scope" className="h-container x-round-card">
+      <div className="mx-auto">
+        <div className="max-w-4xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">What we check</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-[#050F27] sm:text-4xl md:text-5xl">
+            The core checks buyers usually ask for
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg">
+            A faster overview of the work that usually matters before token payment or agreement signing.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08, duration: 0.45 }}
+                className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+              >
+                <div className="p-3 pb-0">
+                  <div className="flex h-[190px] w-full items-center rounded-[22px] border border-slate-200 bg-[linear-gradient(135deg,#f8fafc_0%,#eef2ff_55%,#f1f5f9_100%)] px-7">
+                    <div className="max-w-[75%]">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        {service.title}
+                      </p>
+                      <h3 className="mt-4 text-[1.65rem] font-semibold leading-[1.15] tracking-[-0.04em] text-[#050F27]">
+                        {service.subtitle}
+                      </h3>
+                    </div>
+                    <div className="ml-auto flex h-20 w-20 items-center justify-center rounded-[24px] border border-slate-200 bg-white text-[#050F27] shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
+                      <Icon className="h-9 w-9" strokeWidth={1.8} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6">
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    {service.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/70 px-3 py-2 text-sm font-medium text-slate-700"
+                      >
+                        <CheckIcon />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
-    </>
+    </section>
   );
 }

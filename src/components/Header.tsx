@@ -81,9 +81,7 @@ const Header: React.FC = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Hot Deals", href: "/hot-deals" },
-    { label: "Smart Buyer Desk", href: "/smart-buyer" },
     { label: "Property Verification", href: "/property-verification" },
-    { label: "Property Single", href: "/property-single" },
   ];
 
   // Check if a nav item is active
@@ -98,7 +96,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
       <nav className="relative flex items-center justify-between flex-wrap bg-[#ffffff1a] shadow-sm  py-3 px-6 backdrop-blur-sm">
         {/* Logo */}
         <div className="flex-shrink-0 transition-transform duration-300 hover:scale-105">
@@ -119,8 +118,8 @@ const Header: React.FC = () => {
                 onClick={() => {
                   handleNavClick(index);
                 }}
-                className={`relative text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                  active ? "font-semibold" : "hover:text-opacity-80"
+                className={`relative px-3 py-2 text-base font-semibold tracking-[0.01em] text-gray-700 transition-all duration-300 ${
+                  active ? "text-[#050F27]" : "hover:text-[#050F27]/80"
                 }`}
               >
                 {item.label}
@@ -134,10 +133,10 @@ const Header: React.FC = () => {
         {/* CTA Button */}
         <div className="hidden md:block">
           <a
-            href="#invest"
-            className="inline-block px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500"
+            href="/hot-deals"
+            className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#ED1C24] px-8 py-4 text-center text-lg font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c4121b] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           >
-            Invest with Housyy
+            See Hot Deals
           </a>
         </div>
 
@@ -171,8 +170,8 @@ const Header: React.FC = () => {
                     handleNavClick(index, item.href);
                     setMenuOpen(false);
                   }}
-                  className={`flex items-center justify-between text-white text-base p-2 rounded transition-all duration-200 ${
-                    active ? "bg-[#ffffff15] font-semibold" : "hover:bg-[#ffffff0a]"
+                  className={`flex items-center justify-between rounded p-2 text-[1.05rem] font-semibold tracking-[0.01em] text-white transition-all duration-200 ${
+                    active ? "bg-[#ffffff15]" : "hover:bg-[#ffffff0a]"
                   }`}
                 >
                   <span>{item.label}</span>
@@ -185,15 +184,17 @@ const Header: React.FC = () => {
               );
             })}
             <a
-              href="#invest"
-              className="mt-2 inline-block w-full text-center px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transform transition-all duration-300 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-red-500"
+              href="/hot-deals"
+              className="mt-2 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-[#ED1C24] px-8 py-4 text-center text-lg font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#c4121b] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500"
             >
-              Invest with Housyy
+              See Hot Deals
             </a>
           </div>
         </div>
       </nav>
     </header>
+    <div className="h-[84px] w-full" aria-hidden="true" />
+    </>
   );
 };
 

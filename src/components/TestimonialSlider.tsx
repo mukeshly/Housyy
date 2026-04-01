@@ -8,38 +8,38 @@ import Image from 'next/image';
 const testimonials = [
   {
     id: 1,
-    quote: "Working with ABC Realty to find my dream home was a breeze!",
-    author: "Sarah M.",
-    role: "Property Consultation",
-    avatar: "/u1.png",
+    quote: "We got a better entry price than the other brokers were quoting, and the paperwork support helped us move with confidence.",
+    author: "Rahul S.",
+    role: "Buyer, Mohali",
+    avatar: "/avatars/rahul.svg",
   },
   {
     id: 2,
-    quote: "Sarah guided me smoothly through every step of the buying process.",
-    author: "Esther Howard",
-    role: "Buyer",
-    avatar: "/u2.png",
+    quote: "The best part was not just the deal. It was knowing what we were signing and where the actual risks were.",
+    author: "Neha A.",
+    role: "End-user buyer",
+    avatar: "/avatars/neha.svg",
   },
   {
     id: 3,
-    quote: "Sarah truly understood my needs and made the process seamless.",
-    author: "Michael B.",
+    quote: "Most people just forward inventory. Housyy helped us compare the opportunity and sanity-check the documents before committing.",
+    author: "Amit K.",
     role: "Investor",
-    avatar: "/u1.png",
+    avatar: "/avatars/amit.svg",
   },
   {
     id: 4,
-    quote: "Thanks to Sarah, I found the perfect home at a great price!",
-    author: "Linda J.",
-    role: "Home Buyer",
-    avatar: "/u2.png",
+    quote: "Response time was quick, the communication was clear, and the deal discussion felt much more transparent than usual.",
+    author: "Simran P.",
+    role: "Buyer, Chandigarh",
+    avatar: "/avatars/simran.svg",
   },
   {
     id: 5,
-    quote: "Professional, attentive, and knowledgeable. Highly recommend!",
-    author: "Kevin T.",
-    role: "Seller",
-    avatar: "/u1.png",
+    quote: "We came in for one deal and stayed because the support after shortlisting was actually useful.",
+    author: "Karan M.",
+    role: "Repeat buyer",
+    avatar: "/avatars/karan.svg",
   },
 ];
 
@@ -70,9 +70,12 @@ const TestimonialCarousel = () => {
     <div className="overflow-hidden x-round-card h-container">
       <div className="max-w-7xl mx-auto">
         
-          <h2 className="title">
-            Our <span className="text-red-600">Customers</span> Think We are the Best
+          <h2 className="mb-4 text-4xl font-bold leading-tight text-[#050F27] md:text-5xl">
+            What Buyers Say About <span className="text-red-600">Housyy</span>
           </h2>
+          <p className="mb-8 max-w-2xl text-lg text-gray-600">
+            Feedback from buyers on the deal experience, the verification support, and the confidence they felt while moving ahead.
+          </p>
        
 
         {/* Carousel Viewport */}
@@ -124,7 +127,7 @@ const TestimonialCarousel = () => {
           
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-red-600 text-white shadow flex items-center justify-center hover:bg-red-700 transition"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#050F27]/15 bg-white text-[#050F27] shadow-sm transition hover:border-[#050F27]/35 hover:bg-slate-50"
             >
               <svg
                 className="w-5 h-5"
@@ -139,7 +142,7 @@ const TestimonialCarousel = () => {
 
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-red-600 text-white shadow flex items-center justify-center hover:bg-red-700 transition"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#050F27]/15 bg-white text-[#050F27] shadow-sm transition hover:border-[#050F27]/35 hover:bg-slate-50"
             >
               <svg
                 className="w-5 h-5"

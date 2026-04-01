@@ -1,70 +1,60 @@
-// components/FaqSection.tsx
 "use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is there a free trial available?",
+    question: "When should I get a property verified?",
     answer:
-      "Yes, you can try us for free for 30 days. We'll provide a free personalized onboarding call to help you get started fast.",
+      "Ideally before token payment, agreement signing, or any major negotiation decision. The earlier you review the documents, the more leverage you keep.",
   },
   {
-    question: "Can I change my plan later?",
+    question: "What documents do you usually need to start?",
     answer:
-      "Absolutely! You can upgrade, downgrade, or cancel your plan at any time through your account settings.",
+      "Whatever you already have is enough to begin the conversation. Buyers usually share title papers, allotment or sale documents, approvals, demand letters, and seller-provided IDs or ownership records.",
   },
   {
-    question: "What is your cancellation policy?",
+    question: "Can you help even if I have only shortlisted the property?",
     answer:
-      "We offer a no-questions-asked cancellation option. You can cancel anytime during the billing cycle.",
+      "Yes. We can tell you what to ask for, what to verify first, and where the key risk signals usually sit before you move money.",
   },
   {
-    question: "Can other info be added to an invoice?",
+    question: "Do you verify resale as well as builder inventory?",
     answer:
-      "Yes. You can customize your invoices with company info, tax numbers, and notes.",
+      "Yes. The exact checks change by deal type, but both resale and builder-side purchases can benefit from title, document, and approval review.",
   },
   {
-    question: "How does billing work?",
+    question: "How do I get started?",
     answer:
-      "We bill monthly or annually, depending on the plan you choose. You’ll be notified before each charge.",
-  },
-  {
-    question: "How do I change my account email?",
-    answer:
-      "Simply go to account settings and update your email address. You’ll receive a confirmation link.",
+      "Send us the property details on WhatsApp and we’ll tell you the best first step based on the location, stage of the deal, and documents available.",
   },
 ];
 
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const toggle = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <section className="h-container x-round-card">
-
-      <h2 className="text-4xl md:text-6xl font-bold font-poppins text-center mb-12 text-[#050F27]">
-        FAQs
+      <h2 className="mb-12 text-center text-4xl font-bold font-poppins text-[#050F27] md:text-6xl">
+        Frequently asked questions
       </h2>
       <div className="flex flex-col gap-6">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border-b border-[#EAECF0] pb-4 cursor-pointer"
-            onClick={() => toggle(index)}
+            className="cursor-pointer border-b border-[#EAECF0] pb-4"
+            onClick={() => setActiveIndex(activeIndex === index ? null : index)}
           >
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg md:text-xl font-semibold text-[#101828] font-inter">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-[#101828] font-inter md:text-xl">
                 {faq.question}
               </h3>
               {activeIndex === index ? (
-                <ChevronUp className="text-red-600" />
+                <ChevronUp className="text-[#050F27]" />
               ) : (
-                <ChevronDown className="text-red-600" />
+                <ChevronDown className="text-[#050F27]" />
               )}
             </div>
 
@@ -76,9 +66,7 @@ export default function FaqSection() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-[#667085] text-base font-inter mt-3">
-                    {faq.answer}
-                  </p>
+                  <p className="mt-3 text-base font-inter text-[#667085]">{faq.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

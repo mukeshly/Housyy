@@ -1,7 +1,7 @@
 // components/ProductCard1.tsx
 import React from "react";
 import Image from "next/image";
-import p1 from "@/assets/houses/p1.jpg";
+import Link from "next/link";
 
 interface PropertyDeal {
   id: number;
@@ -27,86 +27,79 @@ interface Props {
 const ProductCard1: React.FC<Props> = ({ property, cardWidth }) => {
   return (
     <div style={{ width: `${cardWidth}px` }} className="px-2 flex-shrink-0">
-      <div className="bg-white rounded-2xl overflow-hidden shadow-md h-full flex flex-col">
-        <div className="relative p-3">
+      <div className="flex h-full flex-col overflow-hidden rounded-[26px] border border-slate-200/80 bg-white shadow-[0_12px_32px_rgba(15,23,42,0.07)] transition-all duration-300 hover:shadow-[0_18px_40px_rgba(15,23,42,0.1)]">
+        <div className="relative p-3 pb-2">
           <Image
-            src={p1}
+            src={property.image}
             alt={property.title}
-            className="w-full h-[180px] sm:h-[200px] object-cover rounded-xl"
-            layout="responsive"
+            className="h-[170px] w-full rounded-[20px] object-cover sm:h-[184px]"
             width={600}
             height={400}
           />
           {property.isLimitedTimeOffer && (
-            <div className="absolute top-4 left-4 bg-[#00B579] px-2 py-1 rounded-full">
-              <span className="text-white text-xs uppercase tracking-wider font-inter">
+            <div className="absolute left-4 top-4 rounded-full border border-white/60 bg-[#10B981] px-3 py-1.5 shadow-sm backdrop-blur-sm">
+              <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
                 limited time offer
               </span>
             </div>
           )}
         </div>
-        <div className="p-4 sm:p-6 flex-grow flex flex-col relative justify-between">
-          <h3 className="text-black text-lg sm:text-xl font-medium font-inter leading-tight">
-            {property.title}
-          </h3>
-          <p className="text-black text-opacity-40 text-sm font-inter mt-1">
-            {property.location}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
+        <div className="flex flex-grow flex-col px-4 pb-4 pt-3 sm:px-5 sm:pb-5">
+          <div className="min-h-[68px] sm:min-h-[76px]">
+            <h3 className="font-inter text-[1.08rem] font-semibold leading-[1.12] tracking-[-0.035em] text-[#050F27] sm:text-[1.38rem]">
+              {property.title}
+            </h3>
+            <p className="mt-1 text-[13px] font-medium tracking-[0.01em] text-[#050F27]/55 sm:text-[14px]">
+              {property.location}
+            </p>
+          </div>
+          <div className="mt-4 min-h-[76px] border-t border-slate-100 pt-3">
+            <div className="flex flex-wrap gap-x-2 gap-y-2">
             {property.isVerified && (
-              <span className="text-black text-opacity-70 text-xs sm:text-sm font-inter">
+              <span className="rounded-full border border-slate-100 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-[#050F27]/70 sm:text-[12px]">
                 ✅ Title Verified
               </span>
             )}
             {property.isReraRegistered && (
-              <span className="text-black text-opacity-70 text-xs sm:text-sm font-inter">
+              <span className="rounded-full border border-slate-100 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-[#050F27]/70 sm:text-[12px]">
                 🏛️ RERA Registered
               </span>
             )}
             {property.isPhysicalSurveyDone && (
-              <span className="text-black text-opacity-70 text-xs sm:text-sm font-inter">
+              <span className="rounded-full border border-slate-100 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-[#050F27]/70 sm:text-[12px]">
                 📸 Physical Survey Done
               </span>
             )}
-
-
-
-
+            </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-dashed border-[#C7C7C7]">
-            <p className="font-poppins text-sm sm:text-base">Price: {property.price}</p>
-            <p className="font-poppins text-sm sm:text-base mt-1">
-              Market Price: {property.marketPrice}
-            </p>
-            <p className="text-black text-opacity-80 font-poppins text-xs sm:text-sm mt-1">
-              Save {property.savings} ({property.savingsPercentage})
-            </p>
+          <div className="mt-3 min-h-[120px] rounded-[20px] border border-slate-100 bg-[linear-gradient(180deg,rgba(248,250,252,0.92),rgba(241,245,249,0.75))] px-4 py-3">
+            <div className="flex items-end justify-between gap-4 border-b border-slate-200/70 pb-2.5">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#050F27]/42">
+                Deal Price
+              </span>
+              <span className="font-poppins text-[1.28rem] font-semibold leading-none tracking-[-0.04em] text-[#050F27] sm:text-[1.5rem]">
+                {property.price}
+              </span>
+            </div>
+            <div className="mt-2.5 flex items-center justify-between gap-4 text-sm">
+              <span className="text-[#050F27]/52">Market range</span>
+              <span className="font-medium text-[#050F27]/75">{property.marketPrice}</span>
+            </div>
+            <div className="mt-1.5 flex items-center justify-between gap-4 text-sm">
+              <span className="text-[#050F27]/52">Potential Savings</span>
+              <span className="text-right font-semibold text-emerald-700">
+                {property.savings}
+              </span>
+            </div>
           </div>
-          <div>
-                      
-{property.isLockDeal && (
-  <button
-    className="mt-6 px-4 py-2 bg-[#ED1C24] hover:bg-[#c4121b] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-2 self-end"
-    onClick={() => alert(`You locked the deal for: ${property.title}`)}
-  >
-    <span>🔐 Lock This Deal</span>
-  </button>
-)}
-          </div>
-          {/* <button className="absolute bottom-4 right-4 w-10 h-10 sm:w-12 sm:h-12 bg-[#ED1C24] rounded-full flex items-center justify-center hover:bg-opacity-90 transition-all">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 23 23"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="mt-auto pt-4">
+            <Link
+              href="/property-verification"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#050F27] shadow-[0_6px_18px_rgba(15,23,42,0.08)] transition-all duration-300 hover:border-slate-300 hover:bg-slate-50 sm:text-[15px]"
             >
-              <path
-                d="M19.8439 3.65547C19.8439 3.46197 19.7713 3.29265 19.6262 3.14752C19.481 3.00239 19.3117 2.92983 19.1182 2.92983H10.991C10.7975 2.92983 10.6282 3.00239 10.4831 3.14752C10.3379 3.29265 10.2654 3.46197 10.2654 3.65547C10.2654 3.84898 10.3379 4.0062 10.4831 4.12714C10.6282 4.24808 10.7975 4.30855 10.991 4.30855H17.4492L3.66203 18.0958C3.5169 18.2409 3.44434 18.4102 3.44434 18.6037C3.44434 18.7972 3.5169 18.9665 3.66203 19.1117C3.80716 19.2568 3.97647 19.3293 4.16998 19.3293C4.36348 19.3293 4.5328 19.2568 4.67793 19.1117L18.4651 5.32445V11.7827C18.4651 11.9762 18.5256 12.1455 18.6465 12.2906C18.7675 12.4357 18.9247 12.5083 19.1182 12.5083C19.3117 12.5083 19.481 12.4357 19.6262 12.2906C19.7713 12.1455 19.8439 11.9762 19.8439 11.7827V3.65547Z"
-                fill="white"
-              />
-            </svg>
-          </button> */}
+              Get Deal Details
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import WhatsAppSticky from "@/components/WhatsAppSticky";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Housyy Pvt Ltd.",
-  description: "Housyy Pvt Ltd.",
+  title: "Housyy | Verified Property Deals and Buyer Support",
+  description:
+    "Discover below-market property deals, get title and paperwork support, and move faster with confidence through Housyy.",
 };
 
 export default function RootLayout({
@@ -24,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+        <WhatsAppSticky />
+      </body>
     </html>
   );
 }

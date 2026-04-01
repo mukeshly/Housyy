@@ -1,306 +1,175 @@
-"use client";
-
 import Footer from "@/components/Footer";
-import HotHero from "./HotHero";
-import PropertyBrowser from "./PropertyBrowser";
-
-import { ArrowRight } from "lucide-react";
 import LiveHotDeals from "@/components/LiveHotDeals";
 import ProductCard2 from "@/components/ProductCard2";
-import { p1, p2, p3, p4, p5, p6, p7 } from "@/assets/houses"; 
-// Sample data for categories
-const categories = [
+import HotHero from "./HotHero";
+import { p1, p2, p3, p4, p5, p6 } from "@/assets/houses";
+import Link from "next/link";
+
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "";
+
+const makeWhatsAppHref = (message: string) =>
+  whatsappNumber
+    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
+    : "/#contact";
+
+const bankAuctionDeals = [
   {
-    id: "newly-launched",
-    title: "Newly Launched",
-    properties: 1230,
+    id: "auction-1",
+    title: "3 BHK Apartment - VIP Road",
+    location: "Zirakpur",
     image: p1,
+    priceLabel: "₹68 Lakhs",
+    marketPriceLabel: "₹78-82 Lakhs",
+    savingsLabel: "₹10-14 Lakhs lower",
+    summary:
+      "Suitable for buyers who can move quickly on a cleaner pricing window and want title checks before token payment.",
+    badges: ["Bank-led lead", "Title review advised"],
+    href: makeWhatsAppHref("Hi, I want details for the VIP Road Zirakpur bank-led hot deal."),
   },
   {
-    id: "bank-auction",
-    title: "Bank Auction Property",
-    properties: 1190,
+    id: "auction-2",
+    title: "2 BHK Builder Floor - Sector 20",
+    location: "Panchkula",
+    image: p2,
+    priceLabel: "₹44 Lakhs",
+    marketPriceLabel: "₹50-54 Lakhs",
+    savingsLabel: "Approx. ₹6-10 Lakhs lower",
+    summary:
+      "A value-first lead for end users looking at Panchkula inventory with more realistic pricing than portal-listed stock.",
+    badges: ["Entry-ticket deal", "Local demand area"],
+    href: makeWhatsAppHref("Hi, I want details for the Panchkula Sector 20 hot deal."),
+  },
+  {
+    id: "auction-3",
+    title: "4 BHK Kothi Plot Package - Aerocity",
+    location: "Mohali",
     image: p3,
-  },
-  {
-    id: "affordable",
-    title: "Affordable Housing",
-    properties: 1710,
-    image: p4,
-  },
-  {
-    id: "urgent-resale",
-    title: "Urgent Resale Deals",
-    properties: 670,
-    image: p5,
-  },
-  {
-    id: "luxury",
-    title: "Luxury Villas",
-    properties: 350,
-    image: p6,
-  },
-  {
-    id: "waterfront",
-    title: "Waterfront Properties",
-    properties: 480,
-    image: p7,
+    priceLabel: "₹1.18 Cr",
+    marketPriceLabel: "₹1.28-1.35 Cr",
+    savingsLabel: "Approx. ₹10-17 Lakhs lower",
+    summary:
+      "For buyers comparing larger-ticket inventory and wanting support on pricing sanity, paperwork, and next-step diligence.",
+    badges: ["Higher-ticket", "Buyer-side support"],
+    href: makeWhatsAppHref("Hi, I want details for the Mohali Aerocity hot deal."),
   },
 ];
 
-// Sample property data
-const propertiesByCategory = {
-  "newly-launched": [
-    {
-      id: "nl-1",
-      title: "Modern Apartment with City View",
-      location: "Downtown, New York",
-      price: 450000,
-      bedrooms: 2,
-      bathrooms: 2,
-      image: p1,
-      isFeatured: true,
-    },
-    {
-      id: "nl-2",
-      title: "Spacious Family Home",
-      location: "Suburbia, California",
-      price: 750000,
-      bedrooms: 4,
-      bathrooms: 3,
-      image: p2,
-    },
-    {
-      id: "nl-3",
-      title: "Studio Apartment",
-      location: "Brooklyn, New York",
-      price: 320000,
-      bedrooms: 1,
-      bathrooms: 1,
-      image: p3,
-    },
-  ],
-  "bank-auction": [
-    {
-      id: "ba-1",
-      title: "Foreclosed Beachfront Villa",
-      location: "Malibu, California",
-      price: 980000,
-      bedrooms: 5,
-      bathrooms: 4,
-      image: p4,
-      isFeatured: true,
-    },
-    {
-      id: "ba-2",
-      title: "Blueberry Villa",
-      location: "Portland, Oregon",
-      price: 520000,
-      bedrooms: 3,
-      bathrooms: 2,
-      image: p5,
-    },
-    {
-      id: "ba-3",
-      title: "Bank Seized Condo",
-      location: "Miami, Florida",
-      price: 290000,
-      bedrooms: 2,
-      bathrooms: 2,
-      image: p5,
-    },
-  ],
-  affordable: [
-    {
-      id: "af-1",
-      title: "Starter Home for Young Couples",
-      location: "Austin, Texas",
-      price: 235000,
-      bedrooms: 2,
-      bathrooms: 1,
-      image: p4,
-    },
-    {
-      id: "af-2",
-      title: "Cozy Cottage Near Park",
-      location: "Denver, Colorado",
-      price: 198000,
-      bedrooms: 2,
-      bathrooms: 1,
-      image: p4,
-    },
-    {
-      id: "af-3",
-      title: "Renovated Apartment Downtown",
-      location: "Chicago, Illinois",
-      price: 210000,
-      bedrooms: 1,
-      bathrooms: 1,
-      image: p4,
-      isFeatured: true,
-    },
-  ],
-  "urgent-resale": [
-    {
-      id: "ur-1",
-      title: "Quick Sale Needed - Family Home",
-      location: "Seattle, Washington",
-      price: 495000,
-      bedrooms: 3,
-      bathrooms: 2,
-      image: p1,
-    },
-    {
-      id: "ur-2",
-      title: "Owner Relocating - Must Sell",
-      location: "Phoenix, Arizona",
-      price: 380000,
-      bedrooms: 3,
-      bathrooms: 2,
-      image: p5,
-      isFeatured: true,
-    },
-    {
-      id: "ur-3",
-      title: "Price Reduced - Townhouse",
-      location: "Philadelphia, Pennsylvania",
-      price: 340000,
-      bedrooms: 2,
-      bathrooms: 2,
-      image: p6,
-    },
-  ],
-  luxury: [
-    {
-      id: "lx-1",
-      title: "Hillside Mansion with Pool",
-      location: "Beverly Hills, California",
-      price: 12500000,
-      bedrooms: 7,
-      bathrooms: 9,
-      image: p1,
-      isFeatured: true,
-    },
-    {
-      id: "lx-2",
-      title: "Penthouse with 360° Views",
-      location: "Manhattan, New York",
-      price: 8900000,
-      bedrooms: 4,
-      bathrooms: 4,
-      image: p2,
-    },
-    {
-      id: "lx-3",
-      title: "Waterfront Estate",
-      location: "Palm Beach, Florida",
-      price: 6700000,
-      bedrooms: 6,
-      bathrooms: 7,
-      image: p3,
-    },
-  ],
-  waterfront: [
-    {
-      id: "wf-1",
-      title: "Lake House with Private Dock",
-      location: "Lake Tahoe, Nevada",
-      price: 890000,
-      bedrooms: 3,
-      bathrooms: 2,
-      image: p7,
-      isFeatured: true,
-    },
-    {
-      id: "wf-2",
-      title: "Oceanside Condo",
-      location: "San Diego, California",
-      price: 750000,
-      bedrooms: 2,
-      bathrooms: 2,
-      image: p5,
-    },
-    {
-      id: "wf-3",
-      title: "River View Property",
-      location: "Portland, Oregon",
-      price: 680000,
-      bedrooms: 3,
-      bathrooms: 2,
-      image: p6,
-    },
-  ],
-};
+const resaleDeals = [
+  {
+    id: "resale-1",
+    title: "3 BHK Society Flat - Airport Road",
+    location: "Mohali",
+    image: p4,
+    priceLabel: "₹72 Lakhs",
+    marketPriceLabel: "₹80-84 Lakhs",
+    savingsLabel: "Approx. ₹8-12 Lakhs lower",
+    summary:
+      "An urgent resale-style lead for serious buyers who want to understand the real upside before moving to token stage.",
+    badges: ["Urgent resale", "Fast-moving lead"],
+    href: makeWhatsAppHref("Hi, I want details for the Mohali Airport Road resale deal."),
+  },
+  {
+    id: "resale-2",
+    title: "3 BHK Independent Floor - Sector 117",
+    location: "Mohali",
+    image: p5,
+    priceLabel: "₹59 Lakhs",
+    marketPriceLabel: "₹64-69 Lakhs",
+    savingsLabel: "Approx. ₹5-10 Lakhs lower",
+    summary:
+      "Works well for owner-occupier buyers who want a practical resale option instead of recycled broker inventory.",
+    badges: ["End-user fit", "Verification recommended"],
+    href: makeWhatsAppHref("Hi, I want details for the Sector 117 Mohali resale deal."),
+  },
+  {
+    id: "resale-3",
+    title: "2.5 BHK Apartment - Dhakoli Belt",
+    location: "Zirakpur",
+    image: p6,
+    priceLabel: "₹47 Lakhs",
+    marketPriceLabel: "₹52-56 Lakhs",
+    savingsLabel: "Approx. ₹5-9 Lakhs lower",
+    summary:
+      "A practical budget-range opportunity for buyers comparing Zirakpur options and wanting quicker clarity on documents and pricing.",
+    badges: ["Budget-focused", "Good comparison lead"],
+    href: makeWhatsAppHref("Hi, I want details for the Dhakoli Zirakpur resale deal."),
+  },
+];
 
-export default function Home() {
+const DealSection = ({
+  title,
+  description,
+  deals,
+}: {
+  title: string;
+  description: string;
+  deals: typeof bankAuctionDeals;
+}) => (
+  <section className="h-container x-round-card !my-5">
+    <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div>
+        <h2 className="mb-2 text-3xl font-bold text-slate-950 md:text-4xl">{title}</h2>
+        <p className="max-w-3xl text-base leading-7 text-slate-600">{description}</p>
+      </div>
+      <Link
+        href={makeWhatsAppHref(`Hi, please share today's ${title.toLowerCase()} in Chandigarh tricity.`)}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+      >
+        Ask for live inventory
+      </Link>
+    </div>
+
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {deals.map((property) => (
+        <ProductCard2 key={property.id} {...property} />
+      ))}
+    </div>
+  </section>
+);
+
+export default function HotDealsPage() {
   return (
     <>
-      <HotHero />
+      <HotHero whatsappHref={makeWhatsAppHref("Hi, I want today's live hot deals in Chandigarh tricity.")} />
 
-      <div className="h-container x-round-card my-5">
-        <PropertyBrowser categories={categories} propertiesByCategory={propertiesByCategory} />
-      </div>
-
-      {/* Section: Bank Auction Property */}
-      <section className="h-container x-round-card !my-5">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold">BANK AUCTION PROPERTY</h2>
-          <div className="flex items-center gap-4">
-            <button className="flex items-center text-primary hover:underline transition-all group">
-              View More
-              <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {propertiesByCategory["bank-auction"].map((property) => (
-            <ProductCard2
-              key={property.id}
-              title={property.title}
-              location={property.location}
-              image={property.image}
-              price={property.price}
-              bedrooms={property.bedrooms}
-              bathrooms={property.bathrooms}
-              isFeatured={property.isFeatured}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Section: Newly Launched Property */}
-      <section className="h-container x-round-card !my-5">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold">NEWLY LAUNCHED PROPERTY</h2>
-          <div className="flex items-center gap-4">
-            <button className="flex items-center text-primary hover:underline transition-all group">
-              View More
-              <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {propertiesByCategory["newly-launched"].map((property) => (
-            <ProductCard2
-              key={property.id}
-              title={property.title}
-              location={property.location}
-              image={property.image}
-              price={property.price}
-              bedrooms={property.bedrooms}
-              bathrooms={property.bathrooms}
-              isFeatured={property.isFeatured}
-            />
-          ))}
-        </div>
-      </section>
-      {/* Live Hot Deals */}
-      <section className="my-5">
+      <section id="curated-deals" className="my-5">
         <LiveHotDeals />
       </section>
-      {/* Footer */}
+
+      <DealSection
+        title="Bank Auction Opportunities"
+        description="Illustrative examples of the kind of bank-led and pricing-dislocation opportunities buyers usually ask us to source and verify."
+        deals={bankAuctionDeals}
+      />
+
+      <DealSection
+        title="Urgent Resale Picks"
+        description="A smaller set of resale-style leads where speed, local understanding, and buyer-side verification support matter more than browsing endless listings."
+        deals={resaleDeals}
+      />
+
+      <section className="h-container x-round-card !my-5 text-center">
+        <h2 className="mb-4 text-3xl font-bold text-slate-950 md:text-4xl">
+          Want today's live inventory instead of brochure examples?
+        </h2>
+        <p className="mx-auto max-w-3xl text-base leading-7 text-slate-600">
+          Message us directly on WhatsApp and we will share the current opportunities that match your budget,
+          area, and urgency, along with where verification support is most important before you move ahead.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <Link
+            href={makeWhatsAppHref("Hi, please share live hot deals based on my budget and preferred area.")}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#25D366] px-8 py-4 text-center text-lg font-semibold text-white shadow-[0_14px_30px_rgba(18,140,126,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+          >
+            Chat on WhatsApp
+          </Link>
+        </div>
+      </section>
+
       <section>
         <Footer />
       </section>
